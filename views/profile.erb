@@ -8,3 +8,8 @@
 
 <h1><%= @user.profile.religion %></h1>
 
+<form method="POST" action="/profile">
+   <input type="text" name="posttext" placeholder="Post-It">
+   <input type="submit" name="submit">
+</form>
+

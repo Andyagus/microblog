@@ -99,6 +99,18 @@ get '/profile' do
    erb :profile
 end
 
+# get '/post' do
+#    erb :post
+# end
+
+post '/profile' do
+   #binding.pry
+   @posttext = params[:posttext]
+   @current_post = Post.create(posttext: @posttext, user_id: current_user.id)
+   @user = current_user
+   erb :post
+end
+
 get '/signout' do
    session[:user_id] = nil
    "succesfully signed out"
