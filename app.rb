@@ -4,8 +4,7 @@ require 'bundler/setup'
 require 'rack-flash'
 require './models'
 
-set :database, "sqlite3:microblog.sqlite3"
-configure(:development) { set :database, "sqlite3:microblog.sqlite3"}
+configure(:development) { set :database, "sqlite3:microblog.sqlite3" }
 
 enable :sessions
 
