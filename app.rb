@@ -108,6 +108,7 @@ post '/profile' do
    @posttext = params[:posttext]
    @current_post = Post.create(posttext: @posttext, user_id: current_user.id)
    @user = current_user
+
    erb :post
 end
 

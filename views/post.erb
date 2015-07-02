@@ -1,8 +1,9 @@
 <h1> Thanks for your Post-It  </h1>
 
 
-<div class = "posts" > <h1><%= @user.posts %></h1> </div>
+<h1><%= @current_post.posttext %></h1>
 
-<script> 
-  
-</script>
+<% @user.posts.reverse.each do |post| %>
+  <p><%= post.posttext %></p>
+
+<% end %>
