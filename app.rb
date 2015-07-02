@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'bundler/setup'
 require 'rack-flash'
 require './models'
+require 'pry'
 
 configure(:development) { set :database, "sqlite3:microblog.sqlite3" }
 
@@ -32,6 +33,11 @@ post '/sign-up' do
       "Your passwords do not match, please try again"
    end
 end
+
+
+# get '/signed-up' do
+#    @username = params[:username]
+# end
 
 # SIGN IN SECTION
 
@@ -71,14 +77,30 @@ def current_user
    end
 end
 
+
+
 get '/profile-form' do
-   
+   erb :profile_form   
 end
 
 post '/profile-form' do
+   #binding.pry
+   @bio = params[:bio]
+   @religion = params[:religion]
+   @current_profile = Profile.create(bio: @bio, religion: params[:religion], user_id: current_user.id)
+  
+   redirect '/profile'
 end
 
 get '/profile' do
-   #{@user.username}
+   #binding.pry
+   @user = current_user
+   #@bio = params[:bio]
+   erb :profile
+end
+
+get '/signout' do
+   session[:user_id] = nil
+   "succesfully signed out"
 end
 
