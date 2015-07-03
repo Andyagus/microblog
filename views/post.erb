@@ -1,8 +1,6 @@
 <h1> Thanks for your Post-It  </h1>
 
 
-<h1><%= @current_post.posttext %></h1>
-
 <% @user.posts.reverse.each do |post| %>
   <p><%= post.posttext %></p>
 

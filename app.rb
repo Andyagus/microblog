@@ -46,7 +46,7 @@ get "/" do
       @username = params[:username]
       erb :index
    else
-      redirect '/sign-up'
+      redirect '/sign-in'
    end
 end
 
@@ -109,7 +109,7 @@ post '/profile' do
    @current_post = Post.create(posttext: @posttext, user_id: current_user.id)
    @user = current_user
 
-   erb :post
+   erb :profile
 end
 
 get '/signout' do
