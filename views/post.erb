@@ -1,9 +1,25 @@
-<h1> Thanks for your Post-It  </h1>
+<div class="main-container">
+  <div class="content">
+<h1>My Posts</h1>
+<a href="/">Main Feed</a><a href="/profile">My Profile</a>
+</div>
 
+<form id="js-form" method="POST" action="/profile">
+  <div class="input-container">
+   <input id="js-post" type="text" name="posttext" placeholder="Post-It">
+ </div>
+   <div class="input-container">
+   <button id="js-button" type="submit" value="Submit" role="button" name="submit">Submit</button>
+ </div>
+</form>
 
+<br>
+<br>
+<div class="content2">
 <h1><%= @current_post.posttext %></h1>
 
 <% @user.posts.reverse.each do |post| %>
   <p><%= post.posttext %></p>
 
 <% end %>
+</div>

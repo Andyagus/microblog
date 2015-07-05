@@ -42,11 +42,12 @@ end
 # SIGN IN SECTION
 
 get "/" do
+   @user = current_user
    if current_user
       @username = params[:username]
       erb :index
    else
-      redirect '/sign-up'
+      redirect '/sign-in'
    end
 end
 
@@ -88,7 +89,6 @@ post '/profile-form' do
    @bio = params[:bio]
    @religion = params[:religion]
    @current_profile = Profile.create(bio: @bio, religion: params[:religion], user_id: current_user.id)
-  
    redirect '/profile'
 end
 
@@ -114,6 +114,6 @@ end
 
 get '/signout' do
    session[:user_id] = nil
-   "succesfully signed out"
+   "Succesfully Signed Out"
 end
 

@@ -1,15 +1,18 @@
-<h1> Welcome to your profile   
-
-</h1>
-
-<h1><%= @user.username %></h1>
-<h1><%= @user.id %></h1>
+<div class="main-container">
+  <div class="content">
+<h1> Welcome <%= @user.username %></h1>
+<h3><a href="/profile-form">Edit your profile</a></h3>
+<h2>Bio:</h2>
 <h1><%= @user.profile.bio %></h1>
-
+<h2>Religion:</h2>
 <h1><%= @user.profile.religion %></h1>
-
-<form method="POST" action="/profile">
-   <input type="text" name="posttext" placeholder="Post-It">
-   <input type="submit" name="submit">
+</div>
+<form id="js-form" method="POST" action="/profile">
+  <div class="input-container">
+   <input id="js-post" type="text" name="posttext" placeholder="Post-It">
+ </div>
+   <div class="input-container">
+   <button id="js-button" type="submit" value="Submit" role="button" name="submit">Submit</button>
+ </div>
 </form>
-
+</div>
