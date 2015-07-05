@@ -41,6 +41,8 @@ end
 
 # SIGN IN SECTION
 
+
+
 get "/" do
    if current_user
       @username = params[:username]
@@ -78,7 +80,6 @@ def current_user
 end
 
 
-
 get '/profile-form' do
    erb :profile_form   
 end
@@ -95,13 +96,13 @@ end
 get '/profile' do
    #binding.pry
    @user = current_user
-   #@bio = params[:bio]
    erb :profile
 end
 
-# get '/post' do
-#    erb :post
-# end
+get '/profile/:user_id/' do
+ @profile = User.find params[:user_id]
+ erb :profile
+end
 
 post '/profile' do
    #binding.pry
