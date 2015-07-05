@@ -19,10 +19,11 @@ get '/sign-up' do
 end
 
 post '/sign-up' do 
-
    username = params[:username]
    email = params[:email]
    birthday = params[:birthday]
+   bio = params[:bio]
+   religion = params[:religion]
    password = params[:password]
    confirmation = params[:confirm_password]
 
@@ -74,23 +75,32 @@ end
 
 def current_user
    if session[:user_id]
-      User.find session[:user_id]
+      User.find(session[:user_id])
    end
 end
 
 
 
 get '/profile-form' do
+   @user = User.find(session[:user_id])
+
    erb :profile_form   
 end
 
 post '/profile-form' do
-   #binding.pry
-   @bio = params[:bio]
-   @religion = params[:religion]
-   @current_profile = Profile.create(bio: @bio, religion: params[:religion], user_id: current_user.id)
+   @user = current_user.update(params[:user])
    redirect '/profile'
 end
+
+get '/profile-form2' do
+   erb :profile_form2
+end
+
+post '/profile-form2' do
+   @user = User.destroy(session[:user_id])
+   redirect '/sign-in'
+end
+
 
 get '/profile' do
    #binding.pry
@@ -106,14 +116,33 @@ end
 post '/profile' do
    #binding.pry
    @posttext = params[:posttext]
+   @username = params[:user_id]
    @current_post = Post.create(posttext: @posttext, user_id: current_user.id)
    @user = current_user
 
-   erb :post
+   erb :profile
 end
+
 
 get '/signout' do
    session[:user_id] = nil
    "Succesfully Signed Out"
 end
+
+get '/feed' do
+   @posts = Post.all
+   erb :feed
+end
+
+# post '/suspended' do
+#    @user = User.destroy(session[:user_id])
+#    erb :suspended
+# end   
+
+
+
+
+
+
+
 

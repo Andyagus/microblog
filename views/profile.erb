@@ -3,9 +3,9 @@
 <h1> Welcome <%= @user.username %></h1>
 <h3><a href="/profile-form">Edit your profile</a></h3>
 <h2>Bio:</h2>
-<h1><%= @user.profile.bio %></h1>
+<h1><%= @user.bio %></h1>
 <h2>Religion:</h2>
-<h1><%= @user.profile.religion %></h1>
+<h1><%= @user.religion %></h1>
 </div>
 <form id="js-form" method="POST" action="/profile">
   <div class="input-container">
@@ -15,4 +15,12 @@
    <button id="js-button" type="submit" value="Submit" role="button" name="submit">Submit</button>
  </div>
 </form>
+<div class="content">
+   <% @user.posts.reverse.each do |post| %>
+      <strong> <%= @user.username %> </strong>
+     <p><%= post.posttext %></p>
+   <% end %>
+</div>
+
+
 </div>
