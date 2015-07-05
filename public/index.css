@@ -1,0 +1,298 @@
+body {
+  background-image: url("images/desk2.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed; 
+        background-size: cover;
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-opener, .menu-opener:hover, .menu-opener.active, .menu-opener-inner, .menu-opener-inner::before, .menu-opener-inner::after, .menu, .menu.active {
+  -webkit-transition: 250ms all;
+  transition: 250ms all;
+}
+
+.menu-opener {
+  cursor: pointer;
+  height: 64px;
+  position: fixed;
+  top: 2%;
+  left: 1%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 64px;
+}
+.menu-opener:hover, .menu-opener.active {
+  background: #000000;
+}
+
+.menu-opener-inner {
+  background: yellow;
+  height: .5rem;
+  margin-left: .75rem;
+  margin-top: 1.75rem;
+  width: 2.5rem;
+}
+.menu-opener-inner::before, .menu-opener-inner::after {
+  background: yellow;
+  content: '';
+  display: block;
+  height: .5rem;
+  width: 2.5rem;
+}
+.menu-opener-inner::before {
+  -webkit-transform: translateY(-0.75rem);
+  -ms-transform: translateY(-0.75rem);
+  transform: translateY(-0.75rem);
+}
+.menu-opener-inner::after {
+  -webkit-transform: translateY(0.25rem);
+  -ms-transform: translateY(0.25rem);
+  transform: translateY(0.25rem);
+}
+.menu-opener-inner.active {
+  background: transparent;
+}
+.menu-opener-inner.active::before {
+  -webkit-transform: translateY(0rem) rotate(-45deg);
+  -ms-transform: translateY(0rem) rotate(-45deg);
+  transform: translateY(0rem) rotate(-45deg);
+}
+.menu-opener-inner.active::after {
+  -webkit-transform: translateY(-0.5rem) translateX(0rem) rotate(45deg);
+  -ms-transform: translateY(-0.5rem) translateX(0rem) rotate(45deg);
+  transform: translateY(-0.5rem) translateX(0rem) rotate(45deg);
+}
+
+.menu {
+  background: #000000;
+  color: transparent;
+  height: 64px;
+  position: fixed;
+  top: 2%;
+  left: 1%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 0rem;
+  z-index: -1;
+}
+.menu.active {
+  width: -webkit-calc(100% - 2rem);
+  width: calc(100% - 2rem);
+ 
+}
+.menu.active .menu-link {
+  color: yellow;
+}
+
+.menu-inner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  list-style-type: none;
+  margin: 0;
+  margin-left: 4rem;
+  padding: 0;
+}
+
+.menu-link {
+  color: transparent;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 2rem;
+  font-weight: 100;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+.menu-link li {
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    height: auto;
+  }
+  .menu-inner {
+    display: block;
+  }
+  .menu-link {
+    padding: 10px 0;
+    font-size: 1.2em;
+  }
+  .menu.active {
+    width: -webkit-calc(100% - 0.5rem);
+    width: calc(100% - 0.5rem);
+  }
+}
+
+
+
+.post-it {
+  display: table;
+  margin: 8em auto 0;  
+}
+
+.note { 
+-webkit-box-shadow: #DDD 0px 1px 2px;
+  position: relative;
+  background-color: yellow;
+  border-color: #DEE184;
+  text-align: center;
+  margin: 2.0em auto;
+  padding: 2.0em 1em;
+  -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  transform: rotate(2deg);
+  width: 300px;
+  height: 300px;
+  font-family: 'Permanent Marker';
+  font-size: 2.5em;
+}
+.note:after {
+  display: block;
+  content: "";
+  position: absolute; 
+  width: 110px;
+  height: 30px;
+  top: -21px;
+  left: 30%;    
+  border: 1px solid #fff;
+  background: rgba(254, 254, 254, .6);
+  -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0px 0 3px rgba(0,0,0,0.1);  
+}
+
+.main-container {
+  width: 100%;
+  margin: 6em auto;
+}
+
+.content {
+  width: 40%;
+  margin-top: 4%;
+  margin-left: 40%;
+  display: block;
+  border-radius: 25px;
+  background-color: white;
+  opacity: 0.6;
+  padding: 1.5%;
+}
+
+.content2 {
+  width: 40%;
+  margin-top: .5%;
+  margin-left: 40%;
+  display: block;
+  border-radius: 25px;
+  background-color: white;
+  opacity: 0.6;
+  padding: 2%;
+}
+
+h1, h6 {
+  color: black;
+}
+h6 {
+  text-align: center;
+}
+
+a:visited{
+  color: black;
+  }
+
+$radius: 4px;
+
+
+%radius {border-radius: $radius;}
+%transition {transition: all .25s;}
+
+/*=Typography=*/
+body,
+input,
+button {font-family: 'Open sans', sans-serif;}
+body {font-size: 16px;}
+input,
+button {font-size: 1em;}
+
+/*=Layout=*/
+*,
+*:before,
+*:after {box-sizing: border-box;}
+.js-hidden {display: none;}
+/*=Form=*/
+form {
+  margin-left: 45%;
+  margin-top: 3%;
+  padding: .5em 0;
+  width: 20em;/*320px*/
+  height: auto;
+  background: #fff;
+  @extend %radius;
+}
+.input-container:not(:last-child) {margin-bottom: 1em;}
+label {
+  padding: 0 .95em;
+  color: #696969;
+}
+input,
+button {
+  display: block;
+  margin: .5em auto;
+  padding: .75em;
+  width: 90%;
+  border: 0;
+  @extend %radius;
+}
+input {background: #F0F0F0;}
+button {
+  font-weight: bold;
+  background: yellow;
+  color: black;
+  @extend %transition;
+  &:focus,
+  &:hover {background: lighten(yellow, 7%);}
+  &:active {background: darken(yellow, 7%);}
+}
+textarea {
+  font-family: 'Open sans', sans-serif;
+  font-size: 1em;
+  margin-left: 1em;
+}

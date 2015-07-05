@@ -1,8 +1,30 @@
-<form method="POST" action="/sign-up">
-   <input type="text" name="[user]username" placeholder="Username">
-   <input type="text" name="[user]email" placeholder="Email">
-   <input type="date" name="[user]birthday">
-   <input type="password" name="[user]password" placeholder="Password">
-   <input type="password" name="confirm_password" placeholder="Confirm Password">
-   <input type="submit">
-</form>   
+<div class="main-container">
+<form id="js-form" method="POST" action="/sign-up">
+   <div class="input-container">
+   <input id="js-fname" type="text" name="[user]fname" placeholder="First Name" autofocus required>
+</div>
+   <div class="input-container">
+   <input id="js-lname" type="text" name="[user]lname" placeholder="Last Name" required>
+</div>
+   <div class="input-container">
+   <input id="js-username" type="text" name="[user]username" placeholder="Username" required>
+</div>
+   <div class="input-container">
+   <input id="js-email" type="text" name="[user]email" placeholder="Email" required>
+</div>
+   <div class="input-container">
+   <input id="js-birthday" type="date" name="[user]birthday" required>
+</div>
+   <div class="input-container">
+   <input id="js-password" type="password" name="[user]password" placeholder="Password" required>
+</div>
+   <div class="input-container">
+   <input id="js-confirm" type="password" name="confirm_password" placeholder="Confirm Password" required>
+</div>
+   <div class="input-container">
+   <button id="js-button" type="submit" value="Submit" role="button" name="submit">Submit</button>
+</div>
+ 
+<h6> Already have an account?<a href="/sign-in">Sign In!</a></h6>
+</form> 
+</div>  
