@@ -2,11 +2,11 @@
   <form id="js-form" method="POST" action="/profile-form">
  
    <div class="input-container">
-   <input id="js-bio" type="text" name="[user]bio" placeholder="Bio" >
+   <input id="js-bio" value="<%= @user.bio %>" type="text" name="[user]bio" placeholder="Bio" >
 </div>
 
    <div class="input-container">
-   <input id="js-religion" type="text" name="[user]religion" placeholder="Religion">
+   <input id="js-religion" value="<%= @user.religion %>" type="text" name="[user]religion" placeholder="Religion">
 </div>
 
   <div class="input-container">

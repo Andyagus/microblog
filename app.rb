@@ -29,7 +29,7 @@ post '/sign-up' do
 
    if confirmation == params[:user][:password]
       @user = User.create(params[:user])
-      "SIGNED UP! #{@user.username}"
+      redirect '/sign-in'
    else
       "Your passwords do not match, please try again"
    end
@@ -44,6 +44,7 @@ end
 
 get "/" do
    @user = current_user
+   
    if current_user
       @username = params[:username]
       erb :index
@@ -126,13 +127,17 @@ end
 
 get '/signout' do
    session[:user_id] = nil
-   "Succesfully Signed Out"
+   flash[:notice] = "User signout successful."
+   redirect '/sign-in'
 end
 
 get '/feed' do
+   @username = params[:username]
    @posts = Post.all
    erb :feed
 end
+
+
 
 # post '/suspended' do
 #    @user = User.destroy(session[:user_id])

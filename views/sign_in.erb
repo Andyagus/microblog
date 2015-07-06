@@ -12,6 +12,16 @@
    <button id="js-button" type="submit" value="Submit" role="button" name="submit">Submit</button>
  </div>
 
+
+
 <h6> Dont have an account?<a href="/sign-up">Sign Up Today!</a></h6>
 </form>
+<br>
+
+<div class="notice" style="text-align:center;
+padding: 30px; font-weight: bold; font-size:70px; color: yellow;">
+<%=flash[:notice] if flash[:notice] %>
+</div>
+
+
 </div>

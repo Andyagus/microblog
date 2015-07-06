@@ -84,7 +84,7 @@ a {
   background: #000000;
   color: transparent;
   height: 64px;
-  position: fixed;
+  position: absolute;
   top: 2%;
   left: 1%;
   -webkit-user-select: none;
